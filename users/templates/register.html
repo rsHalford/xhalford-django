@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+<head>
+    {% block title %}Register / xHalford{% endblock %}
+</head>
+
+<header>
+</header>
+
+{% block content %}
+<div class="register-container">
+    <div class="register-card">
+        <div class="register-social">
+            <a class="google" href=""><i class="fab fa-google"></i></a> <!-- % url 'social:begin' 'google' %} -->
+            <a class="twitter" href=""><i class="fab fa-twitter"></i></a> <!-- % url 'social:begin' 'twitter' %} -->
+            <a class="facebook" href=""><i class="fab fa-facebook-square"></i></a> <!-- % url 'social:begin' 'facebook' %} -->
+            <a class="github" href=""><i class="fab fa-github"></i></a> <!-- % url 'social:begin' 'github' %}" -->
+        </div>
+        <div class="register-title">
+            <h2>Register</h2>
+        </div>
+        <div class="register-form">
+            <form method="post">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <div class="register-submit">
+                    <button type="submit">SUBMIT</button>
+                </div>
+            </form>
+        </div>
+        <div class="register-redirect">
+            <p>Already have an account? <a href="{% url 'login' %}">LOGIN</a></p>
+        </div>
+    </div>
+</div>
+<div class="footer-space"></div>
+{% endblock %}
+
+<footer></footer>

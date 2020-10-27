@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% load static %}
+
+<head>
+    {% block title %}Projects / xHalford{% endblock %}
+</head>
+
+<header></header>
+
+{% block content %}
+<div class="projects-container">
+    {% for project in projects %}
+        <div class="projects-card">
+            <div class="projects-card-overlay">
+                <div class="projects-title">
+                    <h3>{{ project.title }}</h3>
+                </div>
+                <div class="projects-image">
+                    <img src="{{ project.image.url }}">
+                    <div class="projects-image-overlay">
+                        <div class="projects-summary">{{ project.summary }}</div>
+                    </div>
+                </div>
+                <div class="projects-tech">
+                    <p>{{ project.technology }}</p>
+                </div>
+                <div class="projects-link">
+                    <a href="{{ project.url }}" target="_blank">VISIT</a>
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+</div>
+<div class="footer-space"></div>
+{% endblock %}
+
+<footer></footer>

@@ -1,0 +1,189 @@
+/* python manage.py collectstatic when making changes */
+
+.account-container {
+    display: grid;
+    grid-template: 
+    ". card ." 3fr
+    ". footer ." 0.5fr
+    / 0.5fr 6fr 0.5fr;
+    padding-top: 3.5rem;
+    justify-items: center;
+    align-items: center;
+    z-index: 2;
+}
+
+.account-card {
+    grid-area: card;
+    display: grid;
+    grid-template:
+    "title"
+    "settings"
+    "return";
+    justify-items: left;
+    background-color: var(--midground-color);
+    border-radius: 0.3rem;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+}
+
+.account-card .settings-heading {
+    grid-area: title;
+    padding: 1.5rem 0;
+    width: 100%;
+    border-bottom: 3px solid var(--border-color);
+}
+
+.settings-heading .user-title {
+    margin: 0;
+    text-align: center;
+    color: var(--brightfont-color);;
+    font-size: 2rem;
+    padding: 0 2rem;
+}
+
+.account-card .settings-links {
+    grid-area: settings;
+    position: relative;
+    width: 100%;
+    padding: 2rem 0;
+    border-bottom: 3px solid var(--border-color);;
+}
+
+.settings-links h3 {
+    font-size: 2rem;
+    margin: 0;
+    padding: 0 2rem;
+}
+
+/* Dark Theme Selector */
+.color-mode-container {
+    position: relative;
+    display: grid;
+    grid-template: "title switch" / 1.5fr 1fr;
+}
+
+.dark-theme {
+    grid-area: title;
+    color: var(--dullfont-color);
+}
+
+.settings-links h3.dark-theme {
+    width: auto;
+    padding-right: 0;
+}
+
+.color-mode-switch {
+    grid-area: switch;
+    text-align: center;
+}
+
+.switch {
+    position: relative;
+    top: 25%;
+    left: 0;
+    display: inline-block;
+    width: 60px;
+    height: 25px;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: #777777;
+    transition: 0.3s;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 33px;
+    width: 33px;
+    top: 50%;
+    bottom: 50%;
+    left: -3px;
+    margin: auto 0;
+    transition: 0.3s;
+    background-color: #444444;
+}
+
+input:checked + .slider {
+    background-color: #777777;
+}
+
+input:checked + .slider:before {
+    transform: translateX(35px);
+    background-color: #444444;
+}
+
+.slider.round {
+    border-radius: 25px;
+}
+
+.slider.round:before {
+    border-radius: 50%;
+}
+/* Dark Theme Selector END*/
+
+.settings-links a {
+    text-decoration: none;
+    color: var(--dullfont-color);;
+}
+
+.settings-links a:hover {
+    color: var(--brightfont-color);;
+}
+
+.settings-links .change .fa-shield-alt {
+    color: var(--security-color);
+}
+
+.settings-links .logout .fa-sign-out-alt {
+    color: var(--logout-color);
+}
+
+.return-home {
+    grid-area: return;
+    width: 100%;
+    padding: 2rem 0;
+}
+
+.return-home h3 {
+    font-size: 2rem;
+    margin: 0;
+    padding: 0 2rem;
+}
+
+.return-home a {
+    text-decoration: none;
+    color: var(--dullfont-color);;
+}
+
+.return-home a:hover {
+    color: var(--brightfont-color);;
+}
+
+.return-home .return .fa-undo-alt {
+    color: var(--brightfont-color);;
+}
+
+@media screen and (max-width: 50rem) {
+    .account-container {
+        grid-template: 
+        ". header ." auto
+        ". card ." 1fr
+        ". footer ." auto;
+        padding: 3.5rem 0;
+    }
+
+    .account-card {
+        background-color: var(--midground-color);
+        box-shadow: none;
+    }
+    
+    .account-card:hover {
+        box-shadow: none;
+    }
+}

@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% load static %}
+
+<head>
+    {% block title %}{{ category.name }} / xHalford{% endblock %}
+</head>
+
+<header>
+</header>
+
+{% block content %}
+<div class="articles-container">
+    <h1>{{ category | title }}</h1>
+    {% for article in articles %}
+        <div class="articles-card">
+            <div class="articles-title">
+                <h2><a href="{% url 'article' article.pk %}">{{ article.title }}</a></h2>
+                <div class="articles-information">
+                    <h4>
+                        Posted on {{ article.created_on.date }} &nbsp;<b>|</b>&nbsp;
+                        Categories &nbsp;
+                        {% for category in article.categories.all %}
+                        <a href="{% url 'category' category.name %}">
+                            {{ category.name }}
+                        </a>&nbsp;
+                        {% endfor %}
+                    </h4>
+                </div>
+            </div>
+            <div class="articles-summary">
+                <p>{{ article.body | slice:":400" }}<a href="{% url 'article' article.pk %}"> ...</a></p>
+            </div>
+        </div>
+    {% endfor %}
+</div>
+{% endblock %}
+
+{% block footer %}
+{% endblock %}

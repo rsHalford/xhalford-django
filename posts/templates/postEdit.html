@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% load static %}
+
+<head>
+    {% block title %}Add Post / xHalford{% endblock %}
+</head>
+
+<header>
+</header>
+
+{% block content %}
+<div class="postNew-container">
+    <form class="post-form" method="POST">{% csrf_token %}
+        {{ form.as_p }}
+        <button class="save-form" type="submit">Save</button>
+    </form>
+</div>
+{% endblock %}
+
+{% block footer %}
+{% endblock %}

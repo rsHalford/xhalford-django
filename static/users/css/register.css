@@ -1,0 +1,186 @@
+/* python manage.py collectstatic when making changes */
+
+.register-container {
+    display: grid;
+    grid-template: 
+    ". card ." 1fr
+    ". footer ." 0.1fr
+    / 0.5fr 6fr 0.5fr;
+    padding-top: 2rem;
+    justify-items: center;
+    align-items: center;
+    z-index: 2;
+}
+
+.register-card {
+    grid-area: card;
+    margin-top: 3rem;
+    padding: 0 3rem 0;
+    display: grid;
+    grid-template:
+    "social"
+    "title"
+    "form"
+    "redirect";
+    justify-items: center;
+    background-color: var(--midground-color);
+    border-radius: 0.3rem;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+    transition: all 0.4s ease-in-out;
+}
+
+.register-card .register-social {
+    grid-area: social;
+    width: 100%;
+    text-align: center;
+    padding: 3rem 0;
+    border-bottom: 2px solid var(--border-color);
+}
+
+.register-social .fa-google {
+    color: #EA4335;
+    font-size: 3.5rem;
+    padding: 0 1.3rem;
+}
+
+.register-social .fa-google:hover {
+    scale: 1.2;
+}
+
+.register-social .fa-twitter {
+    color: #08A0E9;
+    font-size: 3.5rem;
+    padding: 0 1.3rem;
+}
+
+.register-social .fa-twitter:hover {
+    scale: 1.2;
+}
+
+.register-social .fa-facebook-square {
+    color: #3B5998;
+    font-size: 3.5rem;
+    padding: 0 1.3rem;
+}
+
+.register-social .fa-facebook-square:hover {
+    scale: 1.2;
+}
+
+.register-social .fa-github {
+    color: var(--dullfont-color);
+    font-size: 3.5rem;
+    padding: 0 1.3rem;
+}
+
+.register-social .fa-github:hover {
+    scale: 1.2;
+}
+
+.register-title {
+    grid-area: title;
+    width: 100%;
+    font-size: 1.5rem;
+    text-align: center;
+    padding: 1.5rem 0 0;
+}
+
+.register-title h2 {
+    margin: 0;
+}
+
+.register-card .register-form {
+    grid-area: form;
+    width: 100%;
+    text-align: left;
+    padding: 0.5rem 0 1.5rem;
+}
+
+.register-form p {
+    position: relative;
+    left: 10%;
+    font-size: 1.5rem;
+    margin: 0;
+    padding: 1rem 0 1rem;
+}
+
+.register-form p:empty {
+    display: none;
+}
+
+.register-form label {
+    display: block;
+    text-align: left;
+    padding: 0 0 0.25rem;
+}
+
+.register-form input {
+    color: var(--brightfont-color);
+    font-size: 1.25rem;
+    border: none;
+    border-radius: 0.3rem;
+    padding: 0.6rem;
+    background-color: var(--background-color);
+}
+
+.register-form .helptext {
+    display: none;
+}
+
+.register-form ul {
+    display: none;
+}
+
+.register-submit{
+    padding-top: 1rem;
+    text-align: center;
+}
+
+.register-submit button {
+    font-size: 1.8rem;
+    font-weight: 700;
+    background-color: var(--foreground-color);
+    color: var(--login-color);
+    border: 3px solid var(--login-color);
+    border-radius: 0.3rem;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.register-submit button:hover {
+    color: var(--foreground-color);
+    background-color: var(--login-color);
+}
+
+.register-redirect {
+    grid-area: redirect;
+}
+
+.register-redirect a {
+    text-decoration: none;
+    color: var(--login-color);
+}
+
+.register-redirect a:hover {
+    text-decoration: underline;
+}
+
+
+@media screen and (max-width: 50rem) {
+    .register-container {
+        grid-template: 
+        ". header ." auto
+        ". card ." 1fr
+        ". footer ." auto;
+        padding: 3.5rem 0;
+    }
+
+    .register-card {
+        background-color: var(--midground-color);
+        box-shadow: none;
+    }
+    
+    .register-card:hover {
+        box-shadow: none;
+    }
+}

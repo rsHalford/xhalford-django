@@ -1,0 +1,179 @@
+/* python manage.py collectstatic when making changes */
+
+/*    ABOUT START    */
+
+.about-container {
+    display: grid;
+    grid-template:
+        ". about ."
+        / 0.5fr 3fr 0.5fr;
+    justify-items: center;
+    padding-top: 3.5rem;
+    z-index: 2;
+}
+
+.about-card {
+    grid-column: about;
+    display: grid;
+    grid-template:
+        "picture"
+        "body"
+        "signature"
+        "social";
+    width: 80%;
+    justify-items: left;
+    padding: 1rem 2rem;
+    margin-bottom: 1.8rem;
+    border-radius: 0.3rem;
+    background: linear-gradient(180deg, var(--reverse-color) 196px, var(--midground-color) 196px);
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+    transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+    z-index: 2;
+}
+
+.about-card:hover {
+    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+}
+
+.about-picture {
+    grid-area: picture;
+    overflow: hidden;
+    max-height: 350px;
+    border-radius: 50%;
+    border: 1px solid var(--border-color);
+}
+
+.about-picture img {
+    width: 350px;
+}
+
+.about-me {
+    grid-area: body;
+}
+
+.about-me h1 {
+    padding-top: 1rem;
+    margin-bottom: -2rem;
+}
+
+.about-me a {
+    text-decoration: none;
+    color: var(--social-color);
+}
+
+.about-me a:hover {
+    text-decoration: none;
+    color: var(--brightfont-color);
+}
+
+.about-me h2, h3 {
+    margin: 2rem 0 0;
+}
+
+.about-me h4, h5, h6 {
+    margin: 1rem 0 0;
+}
+
+.about-me p, ul {
+    margin-top: 0.5rem;
+}
+.about-me blockquote {
+    margin-top: 0.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.about-me hr {
+    border: 1px solid var(--social-color);
+    margin: 3rem 0;
+}
+
+.about-me table {
+    width: 100%;
+    margin: 0 auto;
+}
+
+.about-me table > tbody > tr > td, .about-me table > thead > tr > th {
+    padding-right: 2rem;
+}
+
+.about-signature {
+    grid-area: signature;
+    position: relative;
+    left: -2rem;
+    bottom: -1rem;
+    width: calc(100% + 4rem);
+    background-color: #FFFFFF;
+    padding-top: 2rem;
+    margin-top: 1rem;
+}
+
+.about-signature img {
+    width: 50%;
+}
+
+.about-social {
+    grid-area: social;
+    position: relative;
+    left: -2rem;
+    bottom: -1rem;
+    width: calc(100% + 4rem);
+    padding: 1.5rem 0 1rem;
+    background-color: #FFFFFF;
+    border-bottom-left-radius: 0.3rem;
+    border-bottom-right-radius: 0.3rem;
+    font-size: 2rem;
+    text-align: center;
+}
+
+.about-social a {
+    color: #C0C0C0;
+    margin: 1.5rem;
+}
+
+.about-social a:hover .fa-twitter {
+    color: #1DA1F2;
+}
+
+.about-social a:hover .fa-linkedin {
+    color: #2867B2;
+}
+
+.about-social a:hover .fa-github {
+    color: #000000;
+}
+
+.about-social a:hover .fa-gitlab {
+    color: #FC6D26;
+}
+
+/* link to cv pdf */
+
+@media screen and (max-width: 50rem) {
+    .about-container {
+        grid-template: "about";
+        padding-top: 2.5rem;
+        margin: 0.5rem;
+    }
+
+    .about-card {
+        width: 92%;
+        justify-items: center;
+        margin-bottom: 0;
+        padding: 1rem 1rem 3rem;
+        background: none;
+        background: linear-gradient(180deg, var(--reverse-color) 196px, var(--midground-color) 196px);
+        box-shadow: none;
+    }
+
+    .about-card:hover {
+        box-shadow: none;
+    }
+    
+    .about-signature {
+        left: 0;
+    }
+
+    .about-social {
+        left: 0;
+    }
+}

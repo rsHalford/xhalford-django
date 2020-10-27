@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+
+<head>
+    {% block title %}Login / xHalford{% endblock %}
+</head>
+
+{% block content %}
+<div class="login-container">
+    <div class="register-messages">
+        {% if messages %}
+            {% for message in messages %}
+            <div class="register alert-{{ message.tags }}">
+                {{ message }}
+            </div>
+            {% endfor %}
+        {% endif %}
+    </div>
+    <div class="login-card">
+        <div class="login-social">
+            <a class="google" href=""><i class="fab fa-google"></i></a> <!-- % url 'social:begin' 'google' %} -->
+            <a class="twitter" href=""><i class="fab fa-twitter"></i></a> <!-- % url 'social:begin' 'twitter' %} -->
+            <a class="facebook" href=""><i class="fab fa-facebook-square"></i></a> <!-- % url 'social:begin' 'facebook' %} -->
+            <a class="github" href=""><i class="fab fa-github"></i></a> <!-- % url 'social:begin' 'github' %}" -->
+        </div>
+        <div class="login-form">
+            <form method="post">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <div class="login-submit">
+                    <button type="submit">LOGIN</button>
+                </div>
+            </form>
+        </div>
+        <div class="login-options">
+            <a class="login-register" href="{% url 'register' %}">Regsiter account</a>
+            <a class="login-reset" href="{% url 'password_reset' %}">Reset password</a>
+        </div>
+    </div>
+</div>
+<div class="footer-space"></div>
+{% endblock %}
+
+<footer></footer>

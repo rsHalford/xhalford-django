@@ -1,0 +1,180 @@
+/* python manage.py collectstatic when making changes */
+
+.login-container {
+    display: grid;
+    grid-template: 
+    ". header ." auto
+    ". card ." 3fr
+    ". footer ." auto
+    / 0.5fr 6fr 0.5fr;
+    padding-top: 2rem;
+    justify-items: center;
+    align-items: center;
+    z-index: 2;
+}
+
+.register-messages {
+    grid-area: header;
+}
+
+.register-messages .register.alert-success  {
+    font-size: 1.3rem;
+    color: var(--brightfont-color);
+    background-color: var(--login-color);
+    margin-top: 2rem;
+    padding: 1rem;
+    border-radius: 0.3rem;
+}
+
+.login-card {
+    grid-area: card;
+    margin-top: 2rem;
+    display: grid;
+    grid-template:
+    "social"
+    "form"
+    "options";
+    justify-items: center;
+    background-color: var(--midground-color);
+    border-radius: 0.3rem;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+    transition: all 0.4s ease-in-out;
+}
+
+.login-card .login-social {
+    grid-area: social;
+    width: 100%;
+    text-align: center;
+    padding: 3rem 0;
+    border-bottom: 2px solid var(--border-color);
+}
+
+.login-social .fa-google {
+    color: #EA4335;
+    font-size: 3.5rem;
+    padding: 0 1.3rem;
+}
+
+.login-social .fa-google:hover {
+    scale: 1.2;
+}
+
+.login-social .fa-twitter {
+    color: #08A0E9;
+    font-size: 3.5rem;
+    padding: 0 1.3rem;
+}
+
+.login-social .fa-twitter:hover {
+    scale: 1.2;
+}
+
+.login-social .fa-facebook-square {
+    color: #3B5998;
+    font-size: 3.5rem;
+    padding: 0 1.3rem;
+}
+
+.login-social .fa-facebook-square:hover {
+    scale: 1.2;
+}
+
+.login-social .fa-github {
+    color: var(--dullfont-color);
+    font-size: 3.5rem;
+    padding: 0 1.3rem;
+}
+
+.login-social .fa-github:hover {
+    scale: 1.2;
+}
+
+.login-card .login-form {
+    grid-area: form;
+    width: 100%;
+    text-align: center;
+    padding: 4rem 0 3rem;
+    border-bottom: 2px solid var(--border-color);
+}
+
+.login-form p {
+    font-size: 1.5rem;
+    margin: 0;
+    padding: 0 1rem 3rem;
+}
+
+.login-form input {
+    color: var(--brightfont-color);
+    font-size: 1.25rem;
+    border: none;
+    border-radius: 0.3rem;
+    padding: 0.6rem;
+    background-color: var(--background-color);
+}
+
+.login-submit button {
+    font-size: 1.8rem;
+    font-weight: 700;
+    background-color: var(--foreground-color);
+    color: var(--login-color);
+    border: 3px solid var(--login-color);
+    border-radius: 0.3rem;
+    transition: all 0.2s ease;
+    cursor: pointer;
+}
+
+.login-submit button:hover {
+    color: var(--foreground-color);
+    background-color: var(--login-color);
+}
+
+.login-card .login-options {
+    grid-area: options;
+    width: 100%;
+    text-align: center;
+    padding: 2rem 0;
+}
+
+.login-register, .login-reset {
+    text-decoration: none;
+    color: var(--dullfont-color);
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+.login-register {
+    padding-right: 2rem;
+}
+
+.login-register:hover {
+    color: var(--account-color);
+}
+
+.login-reset {
+    padding-left: 2rem;
+}
+
+.login-reset:hover {
+    color: var(--logout-color);
+}
+
+
+
+@media screen and (max-width: 50rem) {
+    .login-container {
+        grid-template: 
+        ". header ." auto
+        ". card ." 1fr
+        ". footer ." auto;
+        padding: 3.5rem 0;
+    }
+
+    .login-card {
+        background-color: var(--midground-color);
+        box-shadow: none;
+    }
+    
+    .login-card:hover {
+        box-shadow: none;
+    }
+}

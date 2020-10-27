@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% load static %}
+{% load markdown_extras %}
+
+<head>
+    {% block title %}Contact / xHalford{% endblock %}
+</head>
+
+<header>
+</header>
+
+{% block content %}
+<div class="about-container">
+    {% for profile in object_list %}
+    <div class="about-card">
+        <div class="about-picture">
+            <img src="{{ profile.image.url }}" alt="{{ profile.title }}"></img>
+        </div>
+        <div class="about-me">
+            <p>{{ profile.body | markdown | safe }}</p>
+        </div>
+        <div class="about-signature">
+            <img src="{{ profile.signature.url }}" alt="R. Halford"></img>
+        </div>
+        <div class="about-social">
+            <a href="https://www.twitter.com/richardhalford_" target="_blank"><i class="fab fa-twitter"></i></a>
+            <a href="https://www.linkedin.com/in/richard-halford" target="_blank"><i class="fab fa-linkedin"></i></a>
+            <a href="https://www.github.com/rsHalford" target="_blank"><i class="fab fa-github"></i></a>
+            <a href="https://www.gitlab.com/rsHalford" target="_blank"><i class="fab fa-gitlab"></i></a>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}
+
+{% block footer %}
+{% endblock %}

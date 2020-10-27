@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+<head>
+    {% block title %}{{ user.username }} / xHalford{% endblock %}
+</head>
+
+
+{% block content %}
+<div class="account-container">
+    <div class="account-card">
+        <div class="settings-heading">
+            <h1 class="user-title">{{ user.username }}</h1>
+        </div>
+        <div class="settings-links">
+            <div class="color-mode-container">
+                <h3 class="dark-theme">Change Theme</h3>
+                <div class="color-mode-switch">
+                    <label id="switch" class="switch">
+                        <input type="checkbox" onchange="toggleTheme()" id="slider">
+                        <span class="slider round"></span>
+                    </label>
+                </div>
+            </div>
+            <h3><a class="change" href="{% url 'password_change' %}">Change Password &nbsp; <i class="fas fa-shield-alt"></i></a></h3>
+            <h3><a class="logout" href="{% url 'logout' %}">Logout &nbsp; <i class="fas fa-sign-out-alt"></i></a></h3>
+        </div>
+        <div class="return-home">
+            <h3><a class="return" href="{% url 'home' %}">Return Home &nbsp; <i class="fas fa-undo-alt"></i></a></h3>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block footer %}
+{% endblock %}

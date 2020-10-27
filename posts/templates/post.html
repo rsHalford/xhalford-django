@@ -1,0 +1,75 @@
+{% extends "base.html" %}
+{% load static %}
+
+<head>
+    {% block title %}{{ post.title }} / xHalford{% endblock %}
+</head>
+
+<header></header>
+
+{% block content %}
+<div class="post-container">
+    <div class="post-card">
+        <div class="post-edit">
+            {% if perms.user.is_superuser %}
+                <a href="{% url 'postEdit' post.slug %}"><i class="fas fa-pencil-alt"></i></a>
+            {% endif %}
+        </div>
+        <div class="post-heading">
+            <div class="post-title">
+                <h1>{{ post.title }}</h1>
+            </div>
+            <h4>
+                Posted on {{ post.published_date.date }} &nbsp;<b>|</b>&nbsp;
+                Categories &nbsp;
+                {% for category in post.categories.all %}
+                <a href="{% url 'category' category.name %}">
+                    {{ category.name }}
+                </a>&nbsp;
+                {% endfor %}
+            </h4>
+        </div>
+        <div class="post-text">
+            <p>{{ post.text }}</p>
+        </div>
+        <div class="post-form">
+            <div class="post-comments">
+                <h3>Comments</h3>
+                <div class="comment-card">
+                    {% for comment in comments %}
+                    <p><b>{{ comment.author }}</b> &nbsp; <span>{{ comment.created_on|timesince}} ago</span></p>
+                        <p>{{ comment.body }}</p>
+                        <br>
+                    {% empty %}
+                        <p>No comments</p>
+                    {% endfor %}
+                </div>
+            </div>
+            <div class="post-comment">
+            {% if user.is_authenticated %}
+                <h3 class="post-leave-comment">Leave a comment</h3>
+                <form action="{% url 'post' post.slug %}" method="post">
+                    {% csrf_token %}
+                    <div class="form-author">
+                        <h4>Username</h4>
+                        {{ form.author }}
+                    </div>
+                    <div class="form-body">
+                        <h4>Comment</h4>
+                        {{ form.body }}
+                    </div>
+                    <div class="form-submit">
+                        <button type="submit" class="comment-submit">SUBMIT</button>
+                    </div>
+                </form>
+            {% else %}
+                <h3 class="post-login-comment"><a href="{% url 'login' %}">Login to leave a comment&nbsp; <i class="fas fa-sign-in-alt"></i></a></h3>
+            {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+<div class="footer-space"></div>
+{% endblock %}
+
+<footer></footer>

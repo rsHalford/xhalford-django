@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{% load static %}
+
+<head>
+    {% block title %}Draft Posts / xHalford{% endblock %}
+</head>
+
+<header>
+</header>
+
+{% block content %}
+<div class="posts-container">
+    {% for post in posts %}
+        <div class="posts-card">
+            <div class="posts-title">
+                <h2><a href="{% url 'post' post.slug %}">{{ post.title }}</a></h2>
+                <div class="posts-information">
+                    <h4>
+                        Created on {{ post.created_date.date }} &nbsp;<b>|</b>&nbsp;
+                        Categories &nbsp;
+                        {% for category in post.categories.all %}
+                        <a href="{% url 'category' category.name %}">
+                            {{ category.name }}
+                        </a>&nbsp;
+                        {% endfor %}
+                    </h4>
+                </div>
+            </div>
+            <div class="posts-summary">
+                <p>{{ post.text | slice:":400" }}<a href="{% url 'post' post.slug %}"> ...</a></p>
+            </div>
+            <div class="posts-comments">
+                <a href="{% url 'post' post.slug %}">Comments: {{ post.comments.count }}</a>
+            </div>
+        </div>
+    {% endfor %}
+</div>
+{% endblock %}
+
+{% block footer %}
+{% endblock %}

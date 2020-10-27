@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+
+<head>
+    {% block title %}Home / xHalford{% endblock %}
+</head>
+
+{% block header %}
+{% endblock %}
+
+{% block content %}
+<div class="home-container">
+    <div class="home-header">
+        <header>
+            Hi, {% if user.is_authenticated %}
+            <a class="userName" href="{% url 'settings' %}">{{ user.username }} &nbsp;<span><i class="fas fa-user-cog"></i></span></a>
+            {% else %}stranger
+            {% endif %}
+            <br>
+            Welcome to Richard Halford's website.
+        </header>
+    </div>
+    <div class="home-nav">
+        <h2><a class="projects" href="{% url 'projects' %}">PROJECTS&nbsp;<i class="fas fa-rocket"></i></a></h2>
+        <h2><a class="posts" href="{% url 'posts' %}">POSTS&nbsp;<i class="fas fa-newspaper"></i></a></h2>
+        <h2><a class="social" href="{% url 'contact' %}">ABOUT&nbsp;<i class="fas fa-hashtag"></i></a></h2>
+        <div>
+            <div class="home-account">
+            {% if user.is_authenticated %}
+                <h2><a class="logout" href="{% url 'logout' %}">LOGOUT&nbsp;<i class="fas fa-sign-out-alt"></i></a></h2>
+            {% else %}
+                <h2><a class="login" href="{% url 'login' %}">LOGIN&nbsp;<i class="fas fa-sign-in-alt"></i></a></h2>
+            {% endif %}
+            </div>
+        </div>
+    </div>
+    <div class="home-footer">
+        <div class="social-links">
+            <a href="https://www.twitter.com/richardhalford_" target="_blank"><i class="fab fa-twitter"></i></a>
+            <a href="https://www.linkedin.com/in/richard-halford" target="_blank"><i class="fab fa-linkedin"></i></a>
+            <a href="https://www.github.com/rsHalford" target="_blank"><i class="fab fa-github"></i></a>
+            <a href="https://www.gitlab.com/rsHalford" target="_blank"><i class="fab fa-gitlab"></i></a>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block footer %}
+{% endblock %}
