@@ -1,5 +1,5 @@
 asgiref==3.2.10
-Django==3.0.8
+Django==3.1.7
 importlib-metadata==1.7.0
 Markdown==3.2.2
 mod-wsgi==4.7.1
@@ -12,4 +12,5 @@ python-dateutil==2.8.1
 pytz==2020.1
 six==1.15.0
 sqlparse==0.3.1
+urllib3==1.26.4
 zipp==3.1.0
